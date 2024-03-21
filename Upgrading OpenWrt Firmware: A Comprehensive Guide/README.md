@@ -1,14 +1,17 @@
-Upgrading OpenWrt Firmware: A Comprehensive Guide
+# Upgrading OpenWrt Firmware: A Comprehensive Guide
 
-Introduction:
+## Introduction
+
 Upgrading your OpenWrt firmware is an essential process to keep your router up-to-date, secure, and functioning optimally. This comprehensive guide will walk you through the entire process, from preparation to post-upgrade steps, ensuring that you retain your settings, installed packages, and data. While this guide aims to be as detailed as possible, it's crucial to understand that unexpected issues can still arise. Therefore, creating a backup of your router's configuration is highly recommended.
 
-Prerequisites:
+## Prerequisites
+
 1. Compatible OpenWrt firmware for your device
 2. Access to your router's web interface (LuCI) or SSH access
 3. List of installed packages (optional but recommended)
 
-Step 1: Determine Your Router's Architecture and Current Firmware
+## Step 1: Determine Your Router's Architecture and Current Firmware
+
 1. Connect to your router via SSH or access the LuCI web interface.
 2. To determine your router's architecture, run the following command in the SSH terminal:
    ```
@@ -22,7 +25,8 @@ Step 1: Determine Your Router's Architecture and Current Firmware
    If the output is "UEFI," your router uses UEFI firmware. If it's "BIOS," your router uses BIOS firmware.
 4. Note down your router's architecture and firmware type for later reference.
 
-Step 2: Download the Appropriate Firmware
+## Step 2: Download the Appropriate Firmware
+
 1. Visit the official OpenWrt download page: https://downloads.openwrt.org
 2. Navigate to the directory corresponding to your router's architecture (e.g., x86_64, aarch64).
 3. Locate the appropriate firmware image based on your router's architecture and firmware type. The naming convention is as follows:
@@ -32,7 +36,8 @@ Step 2: Download the Appropriate Firmware
    - generic-squashfs-combined.img.gz: BIOS firmware with SquashFS filesystem
 4. Download the selected firmware image to your computer.
 
-Step 3: Backup Your Current Configuration
+## Step 3: Backup Your Current Configuration
+
 1. Via LuCI (Web Interface):
    - Navigate to "System" > "Backup / Flash Firmware".
    - Click on "Generate archive" to download a backup of your current settings.
@@ -44,7 +49,8 @@ Step 3: Backup Your Current Configuration
      ```
    - Transfer the backup file from `/tmp` to your computer using `scp` or a similar tool.
 
-Step 4: List Installed Packages (Optional)
+## Step 4: List Installed Packages (Optional)
+
 1. Connect to your router via SSH.
 2. Run the following command to list installed packages:
    ```
@@ -52,7 +58,8 @@ Step 4: List Installed Packages (Optional)
    ```
 3. Transfer the `packages-installed.txt` file to your computer for reference after upgrading.
 
-Step 5: Perform the Upgrade
+## Step 5: Perform the Upgrade
+
 1. Via LuCI:
    - Navigate to "System" > "Backup / Flash Firmware".
    - Under "Flash new firmware image," click "Choose File" and select the firmware image you downloaded.
@@ -68,7 +75,8 @@ Step 5: Perform the Upgrade
      ```
    - Ensure you've used the correct command flags to keep your settings, as specified in the OpenWrt documentation.
 
-Step 6: Resize the Root Filesystem (If Necessary)
+## Step 6: Resize the Root Filesystem (If Necessary)
+
 1. After the upgrade, if you encounter insufficient space issues, you may need to resize the root filesystem.
 2. Connect to your router via SSH.
 3. Run the following command to determine your root filesystem type:
@@ -82,7 +90,8 @@ Step 6: Resize the Root Filesystem (If Necessary)
    
 6. After the reboot, verify that the root filesystem has been resized by running `df -h`.
 
-Step 7: Add Custom Repositories (Optional)
+## Step 7: Add Custom Repositories (Optional)
+
 1. Connect to your router via SSH.
 2. Navigate to the `/etc/opkg/` directory.
 3. Open the `customfeeds.conf` file using a text editor (e.g., `vi`).
@@ -103,8 +112,10 @@ Step 7: Add Custom Repositories (Optional)
    ```
    Note: Disabling key verification is not recommended for regular use as it compromises security.
 
-Step 8: Reinstall Packages (If Necessary)
+## Step 8: Reinstall Packages (If Necessary)
+
 0. (Optional) To install all packages listed in a `packages-installed.txt` file on an OpenWrt system while ensuring the system remains stable and avoids overloading, follow these steps meticulously. Before proceeding with the mass installation of packages, it's crucial to prepare the system by updating package lists and installing a necessary utility like `screen`. This utility allows commands to continue running even if the SSH session is interrupted, reducing the risk of incomplete installations.
+
 1. If you had previously installed packages that are not included in the new firmware, you can reinstall them using the `packages-installed.txt` file from Step 4.
 2. Connect to your router via SSH.
 3. Run the following command to install all packages listed in the file:
@@ -114,10 +125,12 @@ Step 8: Reinstall Packages (If Necessary)
    Note: Replace `/root/packages-installed.txt` with the actual path to your `packages-installed.txt` file.
 4. If you encounter any errors during the installation process, try running the command again. Some packages may have dependencies that need to be installed first.
 
-Step 9: Post-Upgrade Verification
+## Step 9: Post-Upgrade Verification
+
 1. After the upgrade and package reinstallation (if applicable), verify that your settings have been retained and the router is functioning correctly.
 2. Test your network connectivity, firewall rules, and any custom configurations you had previously set up.
 3. If you encounter any issues, refer to the OpenWrt documentation or seek assistance from the OpenWrt community forums.
 
-Conclusion:
+## Conclusion
+
 Upgrading your OpenWrt firmware requires careful planning and execution to ensure a smooth transition while retaining your settings and data. By following this comprehensive guide and creating backups at crucial steps, you can minimize the risk of losing important configurations. Remember to always download firmware from official sources, verify compatibility with your device, and exercise caution when adding custom repositories. With patience and attention to detail, you can successfully upgrade your OpenWrt router and enjoy the benefits of the latest features and security enhancements.
