@@ -78,8 +78,7 @@ Step 6: Resize the Root Filesystem (If Necessary)
    Look for the filesystem mounted on `/` (root). It will be either `ext4` or `squashfs`.
 4. Follow the appropriate steps based on your filesystem type:
    
-   Resizing OpenWrt System Root Filesystem: A Comprehensive Guide
-   [Parent Directory File](../OpenWrt-Guides/"Resizing OpenWrt System Root Filesystem: A Comprehensive Guide"/README.md)
+   [Resizing OpenWrt System Root Filesystem: A Comprehensive Guide](Resizing-filesystem-README.md)
    
 6. After the reboot, verify that the root filesystem has been resized by running `df -h`.
 
