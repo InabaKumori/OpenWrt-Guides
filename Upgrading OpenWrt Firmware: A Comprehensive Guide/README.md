@@ -79,8 +79,9 @@ Step 6: Resize the Root Filesystem (If Necessary)
 4. Follow the appropriate steps based on your filesystem type:
    
    Resizing OpenWrt System Root Filesystem: A Comprehensive Guide
+   [Parent Directory File](../OpenWrt-Guides/"Resizing OpenWrt System Root Filesystem: A Comprehensive Guide"/README.md)
    
-5. After the reboot, verify that the root filesystem has been resized by running `df -h`.
+6. After the reboot, verify that the root filesystem has been resized by running `df -h`.
 
 Step 7: Add Custom Repositories (Optional)
 1. Connect to your router via SSH.
